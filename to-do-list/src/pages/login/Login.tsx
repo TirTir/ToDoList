@@ -20,7 +20,8 @@ export function Login() {
     setPassword(event.target.value);
   };
   const onLogin = () => {
-    Axios.post<User[]>("/login", { id: id })
+    console.log("실행");
+    Axios.post<User[]>("http://localhost:8000/login", { id: id })
       .then((res) => {
         const userData = res.data[0];
         const userPassword = userData.USER_PASSWORD;
@@ -137,7 +138,7 @@ export function Login() {
               }}
               value={password}
               onChange={onPassword}
-              type="text"
+              type="password"
             />
             <Button
               style={{
